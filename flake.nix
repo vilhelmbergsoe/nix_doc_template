@@ -5,6 +5,6 @@
     let pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in {
       devShell.x86_64-linux =
-        pkgs.mkShell { buildInputs = [ pkgs.pandoc pkgs.entr pkgs.gnumake ]; };
+        pkgs.mkShell { buildInputs = [ pkgs.pandoc pkgs.entr pkgs.gnumake pkgs.texlive.combined.scheme-small ]; };
    };
 }
