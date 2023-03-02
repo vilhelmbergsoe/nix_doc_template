@@ -1,14 +1,13 @@
 {
-  description = "pandoc template";
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-21.05;
-    flake-utils.url = github:numtide/flake-utils;
+    flake-utils.url = "github:numtide/flake-utils";
+    nix-pandoc.url = "github:serokell/nix-pandoc";
+    nix-pandoc.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, flake-utils }:
-    with flake-utils.lib; eachSystem allSystems (system:
-    let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in rec {
-      devShell = pkgs.mkShell { buildInputs = [ pkgs.pandoc pkgs.entr pkgs.gnumake pkgs.texlive.combined.scheme-small ]; };
-    });
+  outputs = { self, nixpkgs, nix-pandoc, flake-utils }: {
+    defaultPackage = builtins.mapAttrs (system: pkgs: nix-pandoc.mkDoc.${system} {
+      name = "doc";
+      src = ./.;
+    }) nixpkgs.legacyPackages;
+  };
 }

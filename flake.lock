@@ -2,38 +2,57 @@
   "nodes": {
     "flake-utils": {
       "locked": {
-        "lastModified": 1656928814,
-        "narHash": "sha256-RIFfgBuKz6Hp89yRr7+NR5tzIAbn52h8vT6vXkYjZoM=",
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "7e2a3b3dfd9af950a856d66b0a7d01e3c18aa249",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
         "type": "github"
       },
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nix-pandoc": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1601644537,
+        "narHash": "sha256-i71ZLyJJh4Ey4fYFmEQURH4gqSFuIRRE3zuZW9Dak1A=",
+        "owner": "serokell",
+        "repo": "nix-pandoc",
+        "rev": "3d6336f2d8af706fcb53c4aacdd6c02fed624ac1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "serokell",
+        "repo": "nix-pandoc",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1655034179,
-        "narHash": "sha256-rf1/7AbzuYDw6+8Xvvf3PtEOygymLBrFsFxvext5ZjI=",
+        "lastModified": 1660524483,
+        "narHash": "sha256-Rb/AZ5FErbML2f6+XxJTo+BbDMVtiTVGWML4pOiwBSE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "046ee4af7a9f016a364f8f78eeaa356ba524ac31",
+        "rev": "680f04a9930fa0b9572abda5a9429cb2b1c77655",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-21.05",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "nix-pandoc": "nix-pandoc",
         "nixpkgs": "nixpkgs"
       }
     }

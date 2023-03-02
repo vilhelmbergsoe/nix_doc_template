@@ -1,19 +1,34 @@
-BUILDDIR=build
-FILENAME=main
+TARGETS ?= main.pdf main.docx
 
-pdf:
-	mkdir $(BUILDDIR) -p
-	pandoc $(FILENAME).md \
+SOURCE = main.md
+
+all: $(TARGETS)
+
+watch:
+	echo $(SOURCE) | entr -sc $(MAKE)
+
+main.pdf: $(SOURCE)
+	pandoc \
 		--citeproc \
 		--from=markdown+raw_tex \
 		--to=latex \
-		--output=$(BUILDDIR)/$(FILENAME).pdf \
-		--pdf-engine=xelatex
+		--pdf-engine=xelatex \
+		--pdf-engine-opt=-output-directory=_output \
+		-o $@ $<
+	rm _output -rf
 
-docx:
-	mkdir $BUILDDIR) -p
-	pandoc $(FILENAME).md \
-		--output=$(BUILDDIR)/$(FILENAME).pdf
+main.docx: $(SOURCE)
+	pandoc \
+	--pdf-engine-opt=-output-directory=_output \
+	-o $@ $<
+	rm _output -rf
 
-watch:
-	ls main.md | entr make
+clean:
+	rm -rfv *.pdf *.docx *.html *.log result result-* _*
+
+
+install: $(TARGETS)
+	mkdir -p $(out)
+	mv $^ $(out)
+
+.PHONY: all install clean

@@ -1,21 +1,27 @@
-# pandoc_template
+# nix_doc_template
 
-This is my pandoc template writing assignments and other documents in markdown based on [this](https://jaantollander.com/post/scientific-writing-with-markdown/) blogpost.
+This is my pandoc template writing assignments and other documents in markdown
+based on
+[this](https://jaantollander.com/post/scientific-writing-with-markdown/)
+blogpost.
 
 # Usage
 
 ```console
-$ # enter nix shell
-$ nix-shell
-or
-$ nix develop
+# build doc
+nix build
 
-$ # convert to pdf
-$ make pdf
-$ # watches for changes and recompiles
-$ make watch
-$ # convert to docx
-$ make docx
+# or enter a shell and build using Makefile
+
+# enter nix shell
+nix-shell
+# or
+nix develop
+
+# build doc
+make
+# watch for changes and recompile
+make watch
 ```
 
 # Dependencies

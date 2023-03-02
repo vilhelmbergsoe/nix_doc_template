@@ -4,8 +4,8 @@ date: \today
 author: "Vilhelm Bergsoe"
 bibliography: "bibliography.bib"
 link-citations: true
-urlcolor: "blue"
-csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/harvard-anglia-ruskin-university.csl"
+linkcolor: blue
+toc: true
 ---
 
 This is a simple test [@key_name]

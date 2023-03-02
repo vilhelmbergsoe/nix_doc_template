@@ -1,1 +1,7 @@
-build/
+*.pdf
+*.docx
+*.html
+*.log
+result
+result-*
+_*
